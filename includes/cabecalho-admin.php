@@ -3,6 +3,10 @@
 use Microblog\Auth\ControleDeAcesso;
 
 ControleDeAcesso::exigirLogin();
+
+// Se existir o parâmetro 'sair' na URl (ao clicar em Sair), execute o método logout
+if(isset($_GET['sair'])) ControleDeAcesso::logout();
+
 // DETECTANDO QUAL PÁGINA ESTÁ ABERTA (NECESSÁRIO PARA O SCRIPT DO RODAPE-ADMIN)
 $pagina = basename($_SERVER['PHP_SELF']);
 ?>
@@ -57,7 +61,7 @@ $pagina = basename($_SERVER['PHP_SELF']);
                             <a class="nav-link" href="../index.php" target="_blank">Área pública</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href=""> <i class="bi bi-x-circle"></i> Sair</a>
+                            <a class="nav-link fw-bold" href="?sair"> <i class="bi bi-x-circle"></i> Sair</a>
                         </li>
                     </ul>
 
